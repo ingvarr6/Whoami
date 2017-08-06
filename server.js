@@ -9,7 +9,12 @@ var express = require('express');
 var app = express();
   
 app.get('/', function(req, res){
-  console.log(req)
+  
+  var ip = req.headers['x-forwarded-for'].split(',')[0];
+  var language = req.headers['accept-language'].split(',')[0];
+  //var software = 
+  
+  console.log(req.headers['user-agent'])
   res.send(req.headers.host);
 })
 
