@@ -14,7 +14,7 @@ app.get('/', function(req, res){
   var language = req.headers['accept-language'].split(',')[0];
   //var software = 
   
-  console.log(req.headers['user-agent'])
+  console.log(/\((.+)\)/.exec(req.headers['user-agent'])[1])
   res.send(req.headers.host);
 })
 
