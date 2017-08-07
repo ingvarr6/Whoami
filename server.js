@@ -12,8 +12,7 @@ app.get('/', function(req, res){
   
   var ip = req.headers['x-forwarded-for'].split(',')[0];
   var language = req.headers['accept-language'].split(',')[0];
-  var software = /\((.+)\)/.exec(req.headers['user-agent'])[1];
-  console.log(req.headers['user-agent'])
+  var software = /\((.+?)\)/.exec(req.headers['user-agent'])[1];
   res.json({ipaddress: ip, language: language, software: software});
 })
 
